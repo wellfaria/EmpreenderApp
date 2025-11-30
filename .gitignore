@@ -1,0 +1,36 @@
+# Compilação
+bin/
+obj/
+Debug/
+Release/
+
+# Arquivos do Visual Studio
+.vs/
+*.user
+*.suo
+*.log
+
+# Dependências locais
+packages/
+
+# Cache do build
+*.cache
+*.bak
+
+# Banco de dados SQLite 
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# Migrations 
+Migrations/
+
+# Arquivos de configuração sensíveis
+appsettings.json
+appsettings.Development.json
+
+# Sistema do Windows
+Thumbs.db
+Desktop.ini

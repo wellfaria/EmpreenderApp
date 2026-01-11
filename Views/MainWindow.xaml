@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmpreendedoresApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Meu Empreendimento | Menu Principal" Height="450" Width="800">
     <Grid>
         <TextBlock Text="Sistema para Apoiar Pequenos Empreendedores" 
                    HorizontalAlignment="Center"

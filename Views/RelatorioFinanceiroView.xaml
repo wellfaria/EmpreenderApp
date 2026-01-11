@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmpreendedoresApp.Views"
         mc:Ignorable="d"
-        Title="RelatorioFinanceiroView" Height="450" Width="800">
-    <Grid>
-        
+        Title="Relatório Financeiro" Height="300" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="Data inicial" FontWeight="Bold"/>
+            
+            <DatePicker x:Name="dpInicio"/>
+
+            <TextBlock Text="Data final" Margin="0,10,0,0" FontWeight="Bold"/>
+            <DatePicker x:Name="dpFim"/>
+        </StackPanel>
+
+        <Button Grid.Row="2"
+                Content="Gerar Relatório em PDF"
+                FontSize="18"
+                FontStyle="Oblique"
+                Height="40"
+                Margin="0,20,0,0"
+                VerticalAlignment="Top"
+                Click="BtnGerarRelatorio_Click"/>
     </Grid>
 </Window>

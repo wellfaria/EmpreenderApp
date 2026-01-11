@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows;
 
+
 namespace EmpreendedoresApp
 {
     /// <summary>
@@ -9,6 +10,7 @@ namespace EmpreendedoresApp
     /// </summary>
     public partial class App : Application
     {
+       
     }
 
 }

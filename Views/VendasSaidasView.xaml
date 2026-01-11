@@ -5,8 +5,124 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmpreendedoresApp.Views"
         mc:Ignorable="d"
-        Title="VendasSaidasView" Height="450" Width="800">
-    <Grid>
+        Title="Meu Empreendimento | Vendas / Saídas" Height="500" Width="900"
+        WindowStartupLocation="CenterScreen">
+
+    <!--Produtos, Quantidade, Preço, Button Adicionar-->
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="cmbProdutos"
+                      Grid.Column="0"
+                      Height="35"
+                      Margin="5"
+                      DisplayMemberPath="Nome"
+                      SelectionChanged="CmbProdutos_SelectionChanged"/>
+
+            <TextBox x:Name="txtQuantidade"
+                     Grid.Column="1"
+                     Width="80"
+                     Height="35"
+                     Margin="5"
+                     Text="1"/>
+
+            <TextBox x:Name="txtPrecoUnitario"
+                     Grid.Column="2"
+                     Width="120"
+                     Height="35"
+                     Margin="5"/>
+
+
+
+            <Button x:Name="btnAdicionarItem"
+                    Grid.Column="3"
+                    Content="Adicionar"
+                    Height="35"
+                    Margin="5"
+                    Click="BtnAdicionarItem_Click"/>
+        </Grid>
+
+       
         
+        <!-- ================== ITENS DA VENDA/SAÍDA ================== -->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Button Remover Item-->
+            <Button x:Name="btnRemoverItem"
+                    Content="Remover Item"
+                    Height="35"
+                    Width="150"
+                    Margin="0,0,0,5"
+                    HorizontalAlignment="Left"
+                    Click="BtnRemoverItem_Click"/>
+
+            <!-- DataGrid para exibir os itens da venda/saída -->
+            <DataGrid x:Name="dgItensVenda"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  SelectionUnit="FullRow">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Produto" Binding="{Binding Produto.NomeProduto}" Width="*"/>
+                    <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}" Width="100"/>
+                    <DataGridTextColumn Header="Preço Unitário" Binding="{Binding PrecoUnitario, StringFormat={}{0:C}}" Width="120"/>
+                    <DataGridTextColumn Header="Subtotal" Binding="{Binding Subtotal, StringFormat={}{0:C}}" Width="120"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        
+        <!-- ================== RESUMO ================== -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Desconto (%)"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,0"/>
+
+                <TextBox x:Name="txtDesconto"
+                         Width="80"
+                         Height="30"
+                         Text="0"
+                         TextChanged="TxtDesconto_TextChanged"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+
+                <TextBlock x:Name="txtTotalBruto"
+                           FontSize="16"
+                           Text="Total: R$ 0,00"/>
+
+                <Button x:Name="btnFinalizarVenda"
+                        Content="Finalizar Venda"
+                        Background="LightGreen"
+                        Height="40"
+                        Margin="0,10,0,0"
+                        Click="BtnFinalizarVenda_Click"/>
+            </StackPanel>
+
+        </Grid>
     </Grid>
+
 </Window>

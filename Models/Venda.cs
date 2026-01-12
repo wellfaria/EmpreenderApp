@@ -10,7 +10,11 @@ namespace EmpreendedoresApp.Models
 {
     public class Venda
     {
-        
+        public Venda()
+        {
+            Itens = new ObservableCollection<ItemVenda>();
+        }
+
         // Representa uma venda realizada
 
         public int Id { get; set; }
@@ -18,19 +22,16 @@ namespace EmpreendedoresApp.Models
         // Data da venda
         public DateTime DataVenda { get; set; } = DateTime.Now;
         
-        public ICollection<ItemVenda> Itens { get; set; } = new ObservableCollection<ItemVenda>();
+        public ICollection<ItemVenda> Itens { get; set; }
 
         // Desconto % aplicado na venda
         public decimal DescontoPercentual { get; set; } = 0;
         
-        public decimal Subtotal
-            => Itens.Sum(item => item.Subtotal);
+        public decimal Subtotal => Itens.Sum(item => item.Subtotal);
 
-        public decimal ValorDesconto 
-            => Subtotal * (DescontoPercentual) / 100;
+        public decimal ValorDesconto => Subtotal * (DescontoPercentual) / 100;
         
-        public decimal Total 
-            => Subtotal - ValorDesconto;
+        public decimal Total => Subtotal - ValorDesconto;
         
     }
 }

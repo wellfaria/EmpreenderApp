@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using System.Globalization;
 using EmpreendedoresApp.Models;
 using EmpreendedoresApp.Data;
+using Microsoft.EntityFrameworkCore;
+using EmpreendedoresApp.ViewModels;
 
 namespace EmpreendedoresApp.Views
 {
@@ -23,12 +25,13 @@ namespace EmpreendedoresApp.Views
     /// 
     public partial class VendasSaidasView : Window
     {
-        
+
         private Venda _vendaAtual = new Venda();
 
         public VendasSaidasView()
         {
             InitializeComponent();
+            DataContext = new VendasSaidasViewModel();
             Loaded += VendasSaidasView_Loaded;
             CarregarProdutos();
         }
@@ -104,6 +107,7 @@ namespace EmpreendedoresApp.Views
                 Quantidade = quantidade,
                 PrecoUnitario = precoUnitario,
                 
+
             };
 
 
